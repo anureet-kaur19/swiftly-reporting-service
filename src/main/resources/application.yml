@@ -1,0 +1,24 @@
+server:
+  port: 8084
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/reportingdb
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: reporting-group
+      auto-offset-reset: earliest
+    listener:
+      ack-mode: manual
+
+  application:
+    name: reporting-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
